@@ -1,0 +1,31 @@
+
+
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  font-variant-numeric: lining-nums proportional-nums !important;
+  font-feature-settings: "liga" off !important;
+}
+
+body {
+  overflow-x: hidden;
+  background:#0c0d0d !important;
+  color: #fff;
+}
+
+.fade-enter-active {
+  animation: fade 0.3s ease-in-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

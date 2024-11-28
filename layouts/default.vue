@@ -4,7 +4,6 @@
     :class="{ 'md:mt-[130px] mt-[100px]': !isMain }"
   >
     <LayoutHeader :has-sticky="isMain" />
-    <MainSectionEntrance />
 
     <slot />
 
@@ -17,4 +16,3 @@
 const route = useRoute()
 const isMain = computed(() => route.fullPath === '/')
 </script>
-<!--commi-->

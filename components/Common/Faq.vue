@@ -51,7 +51,6 @@ interface Props {
 defineProps<Props>()
 
 const openItem = (id: number) => {
-  alert(`Clicked on item with id: ${id}`)
   if (selectedItem.value === id) {
     selectedItem.value = 0
     return

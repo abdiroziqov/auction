@@ -1,5 +1,11 @@
 <template>
-  <div class="container">
+  <header
+    :class="{
+      'bg-transparent': !isScrolled,
+      'bg-[#000] shadow-md': isScrolled,
+    }"
+    class="container fixed z-10 transition-all duration-300"
+  >
     <div class="flex justify-between items-center py-4">
       <div>
         <h1 class="text-3xl font-bold text-white">Aristo</h1>
@@ -20,13 +26,32 @@
         />
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const isScrolled = ref(false)
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
+</script>
 
 <style scoped>
 li {
   @apply text-white;
+}
+
+haeder {
+  top: 0;
+  z-index: 10000;
 }
 </style>

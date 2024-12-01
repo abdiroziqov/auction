@@ -43,7 +43,7 @@
 </template>
 <script lang="ts" setup>
 import type { TClassName } from '@/types'
-import { debounce } from '@/utils'
+// import { debounce } from '@/utils'
 
 interface Props {
   noSearchIcon?: boolean
@@ -67,18 +67,18 @@ interface Emits {
 }
 const emit = defineEmits<Emits>()
 const search = ref<string>('')
-watch(
-  () => search.value,
-  (v) => {
-    debounce(
-      'search',
-      () => {
-        emit('search', v)
-      },
-      700,
-    )
-  },
-)
+// watch(
+//   () => search.value,
+//   (v) => {
+//     debounce(
+//       'search',
+//       () => {
+//         emit('search', v)
+//       },
+//       700,
+//     )
+//   },
+// )
 function clearInput() {
   search.value = ''
   emit('clear')

@@ -65,25 +65,18 @@ const settings = computed(() => ({
   thumbs: { swiper: thumbsSwiper.value },
   class: '!absolute inset-0 z-0 !w-full',
   autoplay: {
-    delay: 30,
+    delay: 3000,
   },
   modules,
 }))
 const list = [
   {
     id: 1,
-    description:
-      'Аналитика и математика — это одна из самых важных наук, которая помогает нам понять мир и его состояние. Это также одна из наиболее важных наук, которая помогает нам понять мир и его состояние.',
     image: './images/hero1.png',
-    front_url: 'https://www.google.com',
   },
   {
     id: 2,
-    title: 'hello man',
-    description:
-      'Аналитика и математика — это одна из самых важных наук, которая помогает нам понять мир и его состояние. Это также одна из наиболее важных наук, которая помогает нам понять мир и его состояние.',
     image: './images/hero2.png',
-    front_url: 'https://www.google.com',
   },
 ]
 
@@ -93,8 +86,4 @@ const onSlideChange = (swiper) => {
 }
 </script>
 
-<style scoped>
-.entrance-overlay {
-  color: #fff;
-}
-</style>
+<style scoped></style>

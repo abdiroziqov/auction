@@ -1,6 +1,6 @@
 <template>
   <main>
-    <LayoutHeader :has-sticky="isMain" />
+    <LayoutHeader />
 
     <slot />
 
@@ -9,7 +9,4 @@
     </footer>
   </main>
 </template>
-<script setup lang="ts">
-const route = useRoute()
-const isMain = computed(() => route.fullPath === '/')
-</script>
+<script setup lang="ts"></script>

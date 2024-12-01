@@ -29,6 +29,9 @@ export default {
         orange: {
           DEFAULT: '#FF552e',
         },
+        gray: {
+          DEFAULT: '#212428',
+        },
       },
 
       lineHeight: {

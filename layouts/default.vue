@@ -1,8 +1,5 @@
 <template>
-  <main
-    class="max-[900px]:mb-[61px]"
-    :class="{ 'md:mt-[130px] mt-[100px]': !isMain }"
-  >
+  <main>
     <LayoutHeader :has-sticky="isMain" />
 
     <slot />

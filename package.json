@@ -17,7 +17,8 @@
     "nuxt": "^3.10.1",
     "vue": "^3.4.15",
     "vue-router": "^4.2.5",
-    "swiper": "^10.3.1"
+    "swiper": "^10.3.1",
+    "@ivanv/vue-collapse-transition": "^1.0.2"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",

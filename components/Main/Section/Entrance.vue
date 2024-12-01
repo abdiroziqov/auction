@@ -43,15 +43,23 @@
 
 <script setup lang="ts">
 import 'swiper/css'
+import 'swiper/css/effect-fade'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
-import { Autoplay, Navigation } from 'swiper/modules'
+import {
+  Autoplay,
+  EffectFade,
+  Navigation,
+  Pagination,
+  Thumbs,
+} from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { computed, ref } from 'vue'
 
 const thumbsSwiper = ref(null)
 
-const modules = [Navigation, Autoplay]
+const modules = [Thumbs, Navigation, Pagination, Autoplay, EffectFade]
 const settings = computed(() => ({
   loop: true,
   thumbs: { swiper: thumbsSwiper.value },
@@ -63,10 +71,19 @@ const settings = computed(() => ({
 }))
 const list = [
   {
+    id: 1,
+    description:
+      'Аналитика и математика — это одна из самых важных наук, которая помогает нам понять мир и его состояние. Это также одна из наиболее важных наук, которая помогает нам понять мир и его состояние.',
     image: './images/hero1.png',
+    front_url: 'https://www.google.com',
   },
   {
+    id: 2,
+    title: 'hello man',
+    description:
+      'Аналитика и математика — это одна из самых важных наук, которая помогает нам понять мир и его состояние. Это также одна из наиболее важных наук, которая помогает нам понять мир и его состояние.',
     image: './images/hero2.png',
+    front_url: 'https://www.google.com',
   },
 ]
 

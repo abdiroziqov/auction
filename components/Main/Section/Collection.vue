@@ -1,5 +1,5 @@
 <template>
-  <div>hello man</div>
+  <div class="container"><CommonCardCollection /></div>
 </template>
 <script setup lang="ts"></script>
 

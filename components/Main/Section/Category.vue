@@ -2,17 +2,37 @@
   <div class="relative container py-16">
     <h3 class="section-title mb-7">Category</h3>
     <div class="flex justify-between gap-6">
-      <CommonCardCategory
-        v-for="(item, index) in [...category]"
-        :key="index"
-        :title="item?.title"
-        :to="item?.to"
-      />
+      <Swiper v-bind="settings" :modules="modules">
+        <SwiperSlide
+          class="!w-[196px]"
+          v-for="(item, index) in [...category, ...category]"
+          :key="index"
+        >
+          <CommonCardCategory :title="item?.title" :to="item?.to" />
+        </SwiperSlide>
+      </Swiper>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import 'swiper/css'
+
+import { Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import { computed, ref } from 'vue'
+
+const modules = [Autoplay]
+const settings = computed(() => ({
+  loop: true,
+  spaceBetween: 20,
+  slidesPerView: 6,
+  autoplay: {
+    delay: 3000,
+  },
+  modules,
+}))
+
 const category = [
   {
     title: 'Water Paint',

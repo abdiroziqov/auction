@@ -12,7 +12,7 @@
       </SwiperSlide>
     </Swiper>
 
-    <div class="relative z-2 lg:pl-10 w-[47%]">
+    <div class="relative z-2 lg:pl-3 w-[47%]">
       <p class="text-[54px] font-extrabold mb-5">
         Discover Best
         <span class="text-orange">Painting Art</span>

@@ -4,9 +4,9 @@
     <div class="flex justify-between gap-6">
       <Swiper v-bind="settings" :modules="modules">
         <SwiperSlide
-          class="!w-[196px]"
           v-for="(item, index) in [...category, ...category]"
           :key="index"
+          class="!w-[196px]"
         >
           <CommonCardCategory :title="item?.title" :to="item?.to" />
         </SwiperSlide>
@@ -20,7 +20,6 @@ import 'swiper/css'
 
 import { Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import { computed, ref } from 'vue'
 
 const modules = [Autoplay]
 const settings = computed(() => ({

@@ -2,6 +2,7 @@ import eslintPlugin from 'vite-plugin-eslint'
 
 export default defineNuxtConfig({
   ssr: true,
+
   app: {
     head: {
       htmlAttrs: {
@@ -23,9 +24,12 @@ export default defineNuxtConfig({
   },
 
   devtools: { enabled: true },
+
   vite: {
     plugins: [eslintPlugin()],
   },
+
   css: ['~/assets/tailwind.css'],
   modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
+  compatibilityDate: '2024-12-11',
 })

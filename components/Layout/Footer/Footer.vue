@@ -1,8 +1,10 @@
 <template>
   <footer
-    class="bg-[#161313] text-white pt-10 border-[rgba(196,196,196,0.2)] border-t"
+    class="bg-[#161313] text-white pt-6 md:pt-10 border-[rgba(196,196,196,0.2)] border-t"
   >
-    <div class="container mx-auto grid grid-cols-2 gap-10 pb-10">
+    <div
+      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10 pb-6 md:pb-10"
+    >
       <div>
         <h3 class="font-bold text-[20px] text-white inline-block pb-2">
           Quick Links
@@ -13,9 +15,11 @@
             :key="'quick-' + index"
             class="mb-2"
           >
-            <a :href="link?.links" class="hover:text-orange duration-300">{{
-              link?.name
-            }}</a>
+            <a
+              :href="link?.links"
+              class="hover:text-orange text-[#efefef] duration-300"
+              >{{ link?.name }}</a
+            >
           </li>
         </ul>
       </div>
@@ -28,17 +32,17 @@
           Auction Lab is one of the most amazing companies ever for painting all
           over the world.
         </p>
-        <CommonSocials class="mt-8" :socials="{ instagram: 'aristo.io' }" />
+        <CommonSocials class="mt-8" :socials="socialsData" />
       </div>
     </div>
     <div
-      class="gap-1 container flex justify-center border-[rgba(196,196,196,0.2)] border-t py-4 text-sm"
+      class="container space-x-2 flex justify-center border-[rgba(196,196,196,0.2)] border-t py-4 text-sm"
     >
       <p>
         © {{ currentYear }} <span class="font-bold">Aristo.</span> All rights
         reserved.
       </p>
-      |
+      <span class="hidden md:block">|</span>
       <p>Design by <span>Iceek</span></p>
     </div>
   </footer>
@@ -64,6 +68,13 @@ const quickLinks = [
     links: '/contact',
   },
 ]
+
+const socialsData = {
+  instagram: 'https://www.instagram.com/tmc.uz/',
+  facebook: 'https://www.facebook.com/tmc.uz/',
+  telegram: 'https://t.me/tmc_uz',
+  pinterest: 'https://www.pinterest.com/tmc.uz/',
+}
 </script>
 
 <style scoped></style>

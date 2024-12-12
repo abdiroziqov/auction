@@ -6,14 +6,15 @@ const props = defineProps<{
     instagram?: string
     youtube?: string
     telegram?: string
-    linkedin?: string
     facebook?: string
+    pinterest?: string
+    linkedin?: string
   }
 }>()
 
 const socials = computed(() => [
   {
-    social: 'Instagram',
+    social: 'insta',
     link: props.socials?.instagram ?? '',
   },
   {
@@ -25,12 +26,12 @@ const socials = computed(() => [
     link: props.socials?.linkedin ?? '',
   },
   {
-    social: 'YouTube',
-    link: props.socials?.youtube ?? '',
-  },
-  {
     social: 'Facebook',
     link: props.socials?.facebook ?? '',
+  },
+  {
+    social: 'Pinterest',
+    link: props.socials?.pinterest ?? '',
   },
 ])
 </script>

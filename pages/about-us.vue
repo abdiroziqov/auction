@@ -7,8 +7,4 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-import { useMainStore } from '~/stores/main'
-
-const mainStore = useMainStore()
-</script>
+<script lang="ts" setup></script>

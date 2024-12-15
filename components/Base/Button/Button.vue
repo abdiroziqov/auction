@@ -9,7 +9,7 @@
       },
       hoverClasses,
     ]"
-    class="rounded-lg relative duration-300 active:scale-95 disabled:!cursor-not-allowed"
+    class="rounded-lg relative duration-300 active:scale-95 disabled:!cursor-not-allowed disabled:!border-none"
     :disabled="loading || loadingMore || disabled"
   >
     <span
@@ -98,6 +98,7 @@ const variants: Record<TButtonVariants, string> = {
     'text-lg text-[#17161a] bg-orange border-2 border-orange hover:bg-transparent hover:text-orange',
   border:
     'border-2 border-orange text-orange hover:text-[#17161a] hover:bg-orange',
+  disabled: 'text-white bg-gray-100',
 }
 const sizes: Record<TButtonSizes, string> = {
   sm: 'py-2 px-6 text-sm font-medium leading-130',

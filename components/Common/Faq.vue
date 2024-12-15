@@ -11,7 +11,7 @@
         @click="openItem(item.id)"
       >
         <h4
-          class="font-medium text-base md:text-xl text-dark !leading-130 transition-colors duration-300 group-hover:text-blue"
+          class="font-medium text-lg text-[#00152b] !leading-130 transition-colors duration-300 group-hover:text-orange"
         >
           {{ item.question }}
         </h4>
@@ -22,7 +22,7 @@
       </div>
       <CollapseTransition>
         <div v-if="selectedItem === item.id" class="pb-4">
-          <p class="!leading-130 text-white" :class="answerClass">
+          <p class="!leading-130 text-black" :class="answerClass">
             {{ item.answer }}
           </p>
         </div>
@@ -33,7 +33,6 @@
 <script setup lang="ts">
 import CollapseTransition from '@ivanv/vue-collapse-transition/src/CollapseTransition.vue'
 import { ref } from 'vue'
-
 const selectedItem = ref(0)
 
 interface IFaq {
@@ -80,7 +79,7 @@ const openItem = (id: number) => {
 .plusminus::after {
   content: '';
   display: block;
-  background-color: #0067ff;
+  background-color: #00152b;
   position: absolute;
   top: 50%;
   left: 0;

@@ -3,8 +3,10 @@
     :class="{
       'bg-transparent': !isScrolled,
       'bg-[#000] shadow-md': isScrolled,
+      fixed: isHomeRoute,
+      relative: !isHomeRoute,
     }"
-    class="container fixed z-10 transition-all duration-300"
+    class="container z-10 transition-all duration-300"
   >
     <div class="flex justify-between items-center py-4">
       <NuxtLink class="flex items-center gap-3" to="/">
@@ -31,9 +33,11 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const isScrolled = ref(false)
-
 const search = ref('')
+
+const isHomeRoute = computed(() => route.path === '/')
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50

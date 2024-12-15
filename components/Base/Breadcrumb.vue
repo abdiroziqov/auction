@@ -5,10 +5,10 @@
     >
       <NuxtLink
         to="/"
-        class="flex-y-center gap-2 text-brand-black cursor-pointer leading-130 text-sm font-semibold transition-300 hover:text-primary group"
+        class="flex-y-center gap-2 text-black cursor-pointer leading-130 text-sm font-semibold transition-300 hover:text-primary group"
       >
         <i-home class="text-2xl group-hover:text-inherit" />
-        <p>{{ $t('home') }}</p>
+        <p>Home</p>
       </NuxtLink>
       <div
         v-for="(item, index) in breadcrumb"
@@ -19,7 +19,7 @@
         <NuxtLink
           :to="item?.link"
           :class="{
-            'pointer-events-none !text-[#8e9ba8] ':
+            'pointer-events-none !text-orange ':
               index === breadcrumb?.length - 1,
           }"
           class="transition-300 flex cursor-pointer items-center text-brand-black leading-130 text-sm font-semibold min-w-max group-last:min-w-[100px] sm:group-last:min-w-[200px] breadcrumb-menu line-clamp-1 whitespace-nowrap hover:text-primary"

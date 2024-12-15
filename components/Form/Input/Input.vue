@@ -1,7 +1,7 @@
 <template>
   <div
     :id="id"
-    class="bg-gray-500 border border-orange transition-300 focus-within:border-primary flex items-center rounded-10"
+    class="!bg-[#F4F7F5] border border-transparent transition-300 focus-within:border-primary flex items-center rounded-10"
     :class="{
       '!border-red-500 !bg-red/5': error,
       '!bg-transparent': isTransparent,

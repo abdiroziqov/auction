@@ -73,11 +73,6 @@
             </div>
           </form>
         </div>
-
-        <div class="py-5 pb-10">
-          <h3 class="section-title !text-black md:text-center">F.A.Q</h3>
-          <CommonFaq clas="py-6" :faq="faq" />
-        </div>
       </div>
     </div>
   </div>
@@ -167,19 +162,4 @@ function verifyMethod(response: any) {
 function expiredMethod() {
   captchaToken.value = null
 }
-
-const faq = [
-  {
-    id: 1,
-    question: 'What is the difference between the two types of registration?',
-    answer:
-      'There are two types of registration: free and paid. The free registration is for those who want to register for the event without paying any fees. The paid registration is for those who want to register for the event and pay a fee for it.',
-  },
-  {
-    id: 2,
-    question: 'What is the deadline for registration?',
-    answer:
-      'The registration deadline is the date when the registration period ends. The registration period is the period during which you can register for the event.',
-  },
-]
 </script>

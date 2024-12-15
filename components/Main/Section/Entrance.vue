@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="flex-center relative min-h-screen overflow-x-hidden flex items-center"
-  >
+  <section class="relative min-h-screen overflow-x-hidden flex items-center">
     <Swiper v-bind="settings" :modules="modules" @slide-change="onSlideChange">
       <SwiperSlide v-for="(item, i) in list" :key="i">
         <img

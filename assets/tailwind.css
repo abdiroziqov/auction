@@ -1,16 +1,4 @@
-
 @import "/assets/icomoon/style.css";
-
-body,
-button,
-input,
-optgroup,
-select,
-textarea {
-  font-family: sans-serif;
-  font-variant-numeric: lining-nums proportional-nums !important;
-  font-feature-settings: "liga" off !important;
-}
 
 body {
   overflow-x: hidden;

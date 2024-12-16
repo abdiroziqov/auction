@@ -2,15 +2,17 @@
   <div class="relative container py-16">
     <h3 class="section-title mb-7">Category</h3>
     <div class="flex justify-between gap-6">
-      <Swiper v-bind="settings" :modules="modules">
-        <SwiperSlide
-          v-for="(item, index) in [...category, ...category]"
-          :key="index"
-          class="!w-[196px]"
-        >
-          <CommonCardCategory :title="item?.title" :to="item?.to" />
-        </SwiperSlide>
-      </Swiper>
+      <ClientOnly>
+        <Swiper class="!w-full" v-bind="settings">
+          <SwiperSlide
+            v-for="(item, index) in [...category, ...category]"
+            :key="index"
+            class="!w-[196px]"
+          >
+            <CommonCardCategory :title="item?.title" :to="item?.to" />
+          </SwiperSlide>
+        </Swiper>
+      </ClientOnly>
     </div>
   </div>
 </template>

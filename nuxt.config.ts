@@ -30,6 +30,9 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/tailwind.css'],
-  modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss'],
+  modules: ['@pinia/nuxt', '@nuxtjs/tailwindcss', '@nuxt/fonts'],
+  fonts: {
+    families: [{ name: 'Nunito', provider: 'google' }],
+  },
   compatibilityDate: '2024-12-11',
 })

@@ -1,7 +1,7 @@
 <template>
   <div>
     <MainSectionEntrance class="min-h-screen" />
-    <MainSectionCategory v-if="false" />
+    <MainSectionCategory />
     <MainSectionLiveAuction v-if="false" />
     <MainSectionCollection />
   </div>

@@ -14,6 +14,9 @@ export default {
 
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["'Nunito'"],
+      },
       container: {
         center: true,
         padding: {

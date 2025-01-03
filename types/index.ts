@@ -3,6 +3,16 @@ export interface IBreadcrumb {
   link: string
 }
 
+export interface IProduct {
+  id: number
+  label: string
+  title: string
+  price: number | string
+  bid: number | string
+  image: string
+  time: string
+}
+
 export interface IFaq {
   question: string
   answer: string
@@ -16,6 +26,6 @@ type TClass =
 
 export type TClassName = TClass | TClass[]
 
-export type TButtonVariants = 'border' | 'orange' | 'disabled'
+export type TButtonVariants = 'border' | 'orange' | 'disabled' | 'grayBorder'
 
 export type TButtonSizes = 'sm' | 'md'

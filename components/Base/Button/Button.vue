@@ -99,6 +99,8 @@ const variants: Record<TButtonVariants, string> = {
   border:
     'border-2 border-orange text-orange hover:text-[#17161a] hover:bg-orange',
   disabled: 'text-white bg-gray-100',
+  grayBorder:
+    'border border-gray-100 text-gray-100 font-extrabold text-lg hover:text-white hover:bg-gray-100 rounded-sm',
 }
 const sizes: Record<TButtonSizes, string> = {
   sm: 'py-2 px-6 text-sm font-medium leading-130',

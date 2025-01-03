@@ -43,7 +43,7 @@
         reserved.
       </p>
       <span class="hidden md:block">|</span>
-      <p>Design by <span>Iceek</span></p>
+      <p>Design by <span>Muslima</span></p>
     </div>
   </footer>
 </template>

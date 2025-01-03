@@ -6,11 +6,16 @@
           <div
             v-for="(digit, idx) of formatTimer(timeParts.days).split('')"
             :key="idx"
-            class="text-xl font-extrabold text-[#00152b] capitalize"
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
           >
             {{ digit }}
           </div>
-          <span class="text-xl font-extrabold text-[#00152b]">:</span>
+          <span
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
+            >:</span
+          >
         </div>
       </div>
 
@@ -19,11 +24,14 @@
           <div
             v-for="(digit, idx) of formatTimer(timeParts.hours).split('')"
             :key="idx"
-            class="text-xl font-extrabold text-[#00152b] capitalize"
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
           >
             {{ digit }}
           </div>
-          <span class="text-xl font-extrabold text-[#00152b] capitalize"
+          <span
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
             >:</span
           >
         </div>
@@ -34,11 +42,14 @@
           <div
             v-for="(digit, idx) of formatTimer(timeParts.minutes).split('')"
             :key="idx"
-            class="text-xl font-extrabold text-[#00152b] capitalize"
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
           >
             {{ digit }}
           </div>
-          <span class="text-xl font-extrabold text-[#00152b] capitalize"
+          <span
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
             >:</span
           >
         </div>
@@ -49,7 +60,8 @@
           <div
             v-for="(digit, idx) of formatTimer(timeParts.seconds).split('')"
             :key="idx"
-            class="text-xl font-extrabold text-[#00152b] capitalize"
+            :class="[hideDays ? 'text-gray-100' : 'text-white']"
+            class="capitalize"
           >
             {{ digit }}
           </div>

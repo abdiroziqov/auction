@@ -34,6 +34,7 @@ export default {
         },
         gray: {
           DEFAULT: '#212428',
+          100: '#00152b',
         },
       },
 

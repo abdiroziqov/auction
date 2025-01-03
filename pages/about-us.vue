@@ -5,15 +5,15 @@
         <img src="/public/images/about-image-group.png" alt="image" />
         <div class="w-[40%]">
           <h2
-            class="font-extrabold text-[35px] capitalize text-[#00152b] font-primary relative inline-block mb-5"
+            class="font-extrabold text-[35px] capitalize text-gray-100 font-primary relative inline-block mb-5"
           >
             About us
             <span
-              class="absolute w-7 h-0.5 bg-[#00152b] top-1/2 -translate-y-1/2 -right-10"
+              class="absolute w-7 h-0.5 bg-gray-100 top-1/2 -translate-y-1/2 -right-10"
             ></span>
           </h2>
           <p
-            class="font-bold font-primary text-2xl leading-[35px] capitalize text-[#454545] pl-[14px] relative before:content-[''] before:left-0 before:absolute before:w-[3px] before:h-[54px] before:bg-[#00152b] before:rounded-tr-md before:rounded-br-md before:top-1/2 before:-translate-y-1/2"
+            class="font-bold font-primary text-2xl leading-[35px] capitalize text-[#454545] pl-[14px] relative before:content-[''] before:left-0 before:absolute before:w-[3px] before:h-[54px] before:bg-gray-100 before:rounded-tr-md before:rounded-br-md before:top-1/2 before:-translate-y-1/2"
           >
             The auction platform for artists, arts organisations and charities.
           </p>
@@ -30,7 +30,7 @@
             class="flex items-center gap-2 mb-3"
           >
             <img src="/public/images/arrow-right-fancy.svg" alt="arrow icon" />
-            <p class="font-semibold text-[#00152b]">{{ item }}</p>
+            <p class="font-semibold text-gray-100">{{ item }}</p>
           </div>
         </div>
       </div>

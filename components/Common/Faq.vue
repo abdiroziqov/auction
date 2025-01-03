@@ -11,7 +11,7 @@
         @click="openItem(item.id)"
       >
         <h4
-          class="font-medium text-lg text-[#00152b] !leading-130 transition-colors duration-300 group-hover:text-orange"
+          class="font-medium text-lg text-gray-100 !leading-130 transition-colors duration-300 group-hover:text-orange"
         >
           {{ item.question }}
         </h4>

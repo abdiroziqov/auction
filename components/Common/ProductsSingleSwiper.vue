@@ -19,7 +19,7 @@
       </swiper-slide>
     </swiper>
     <swiper
-      class="thumbs-swiper h-[20%] box-border px-0 py-4"
+      class="thumbs-swiper h-[20%] box-border px-0 py-4 bg-white shadow-[5px_7px_35px_0px_rgba(113,113,113,.1)]"
       :modules="modules"
       :space-between="10"
       :slides-per-view="4"
@@ -31,8 +31,8 @@
       <swiper-slide
         v-for="index in 8"
         :key="index"
-        class="slide w-[25%] h-full opacity-100 transition-opacity duration-300"
-        :class="{ 'opacity-50': !isActive(index) }"
+        class="slide w-[25%] h-full opacity-100 transition-opacity duration-300 py-5 cursor-pointer"
+        :class="{ 'opacity-100': !isActive(index) }"
       >
         <img
           src="/public/images/car.png"

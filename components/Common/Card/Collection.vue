@@ -4,7 +4,7 @@
 
     <div class="bg-gray rounded-[10px] overflow-hidden relative inline-block">
       <div class="!h-[135px]">
-        <img class="!h-[135px]" src="/public/images/hero1.png" alt="image" />
+        <img class="!h-[135px]" src="/images/hero1.png" alt="image" />
       </div>
       <div class="px-5 pb-5">
         <div class="absolute w-20 h-20 top-[32%] left-[35%]">

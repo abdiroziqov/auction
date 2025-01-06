@@ -12,7 +12,7 @@
     >
       <swiper-slide v-for="index in 8" :key="index" class="slide">
         <img
-          src="/public/images/car.png"
+          src="/images/car.png"
           class="block w-full h-full object-cover"
           alt="image"
         />
@@ -35,7 +35,7 @@
         :class="{ 'opacity-100': !isActive(index) }"
       >
         <img
-          src="/public/images/car.png"
+          src="/images/car.png"
           alt="image"
           class="block w-full h-full object-cover"
         />

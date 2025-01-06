@@ -2,7 +2,7 @@
   <div class="bg-white">
     <div class="container py-24">
       <div class="flex items-center gap-5 justify-between">
-        <img src="/public/images/about-image-group.png" alt="image" />
+        <img src="/images/about-image-group.png" alt="image" />
         <div class="w-[40%]">
           <h2
             class="font-extrabold text-[35px] capitalize text-gray-100 font-primary relative inline-block mb-5"
@@ -29,7 +29,7 @@
             :key="index"
             class="flex items-center gap-2 mb-3"
           >
-            <img src="/public/images/arrow-right-fancy.svg" alt="arrow icon" />
+            <img src="/images/arrow-right-fancy.svg" alt="arrow icon" />
             <p class="font-semibold text-gray-100">{{ item }}</p>
           </div>
         </div>

@@ -12,7 +12,7 @@
     <div class="w-[416px] h-[258px] relative">
       <img
         class="w-full h-full duration-300 group-hover:scale-[1.02]"
-        src="/public/images/car.png"
+        src="/images/car.png"
         alt="image"
       />
     </div>

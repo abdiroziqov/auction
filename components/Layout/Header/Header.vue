@@ -16,10 +16,17 @@
         </NuxtLink>
         <div>
           <ul class="flex gap-4 text-white">
-            <li>Home</li>
-            <li>Auction</li>
-            <li>About us</li>
-            <li>Contact</li>
+            <li
+              v-for="(link, index) in quickLinks"
+              :key="'quick-' + index"
+              class="mb-2"
+            >
+              <a
+                :href="link?.links"
+                class="hover:text-orange text-[#efefef] duration-300"
+                >{{ link?.name }}</a
+              >
+            </li>
           </ul>
         </div>
         <div>
@@ -62,6 +69,25 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
+const quickLinks = [
+  {
+    name: 'Home',
+    links: '/',
+  },
+  {
+    name: 'Auction',
+    links: '/auction',
+  },
+  {
+    name: 'About Us',
+    links: '/about-us',
+  },
+  {
+    name: 'Contact',
+    links: '/contact',
+  },
+]
 </script>
 
 <style scoped>

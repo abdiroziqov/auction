@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div :class="mainClass">
     <div class="flex-x-center gap-x-1">
       <div v-if="!hideDays" class="flex flex-col gap-y-1">
         <div class="flex gap-x-1">
@@ -76,6 +76,7 @@
 interface TimerProps {
   targetDate: Date | string
   hideDays: boolean
+  mainClass?: string
 }
 
 const props = defineProps<TimerProps>()

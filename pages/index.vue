@@ -2,7 +2,7 @@
   <div>
     <MainSectionEntrance class="min-h-screen" />
     <MainSectionCategory />
-    <MainSectionLiveAuction v-if="false" />
+    <MainSectionLiveAuction />
     <MainSectionCollection />
   </div>
 </template>

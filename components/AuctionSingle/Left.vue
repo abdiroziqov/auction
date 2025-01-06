@@ -33,7 +33,6 @@
 </template>
 <script setup lang="ts">
 const activeTab = ref('0')
-const markers = ref([])
 
 const tabs = ref([
   { id: 0, title: 'Description', value: '0' },

@@ -33,7 +33,7 @@
           <FormInputSearch
             v-model="search"
             placeholder="Search your items"
-            class="!bg-[#1D2227] w-full !border !border-orange"
+            class="!bg-transparent w-full !border !border-orange !text-white text-orange"
           />
         </div>
       </div>

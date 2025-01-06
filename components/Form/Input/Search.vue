@@ -2,7 +2,7 @@
   <FormInput
     :id="id"
     v-model="search"
-    class="bg-gray-500"
+    class="bg-gray-500 !text-orange"
     :input-class="[
       'sm:!text-2xs !py-2.5',
       ...[!noSearchIcon ? '!pl-0' : ''],
@@ -18,8 +18,8 @@
         class="h-max p-2 pl-3 pointer-events-none flex-center"
         :class="searchIconWrapper"
       >
-        <i-search
-          class="flex-center text-lg h-[18px] text-gray-700"
+        <i
+          class="icon-search flex-center text-lg h-[18px] text-orange"
           :class="iconClass"
         />
       </div>
@@ -32,8 +32,8 @@
         @click.stop="clearInput"
       >
         <slot name="suffix">
-          <i-close
-            class="text-xl text-gray-700 group-hover:text-red transition-300"
+          <i
+            class="icon-close text-xl text-gray-700 group-hover:text-red transition-300"
             :class="[iconClass, iconCloseStyles]"
           />
         </slot>

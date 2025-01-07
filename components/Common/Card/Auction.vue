@@ -1,5 +1,6 @@
 <template>
-  <div
+  <NuxtLink
+    to="/auction/1"
     class="bg-gray shadow-[0_0_15px_rgba(0,0,0,0.15)] rounded-[10px] py-6 px-5 pt-8 relative z-2"
   >
     <CommonCountdown
@@ -20,7 +21,7 @@
       <p class="font-semibold text-xl capitalize text-orange mr-4">$100</p>
     </div>
     <div class="flex items-center justify-between mt-7">
-      <NuxtLink to="/">
+      <NuxtLink to="/auction/1">
         <BaseButton
           size="sm"
           variant="orange"
@@ -31,6 +32,6 @@
       </NuxtLink>
       <BaseButtonLike :model-value="trigger" />
     </div>
-  </div>
+  </NuxtLink>
 </template>
 <script setup lang="ts"></script>

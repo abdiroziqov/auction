@@ -26,7 +26,7 @@
       <div>
         <NuxtLink class="flex items-center gap-3" to="/">
           <img src="/bidgen-logo.svg" alt="logo" />
-          <h1 class="text-3xl font-bold text-white">Aristo</h1>
+          <h1 class="text-3xl font-bold text-white">Fotheby Auction</h1>
         </NuxtLink>
         <p class="text-[#adadad] mt-5 leading-8">
           Auction Lab is one of the most amazing companies ever for painting all
@@ -39,8 +39,8 @@
       class="container space-x-2 flex justify-center border-[rgba(196,196,196,0.2)] border-t py-4 text-sm"
     >
       <p>
-        © {{ currentYear }} <span class="font-bold">Aristo.</span> All rights
-        reserved.
+        © {{ currentYear }} <span class="font-bold">Fotheby Auction.</span> All
+        rights reserved.
       </p>
       <span class="hidden md:block">|</span>
       <p>Developed by <span>Muslima</span></p>

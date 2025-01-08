@@ -54,19 +54,20 @@
             </FormGroup>
 
             <div class="col-span-2 md:col-span-1">
-              <!--              <vue-recaptcha-->
-              <!--                :key="trigger"-->
-              <!--                size="large"-->
-              <!--                :sitekey="key"-->
-              <!--                @verify="verifyMethod"-->
-              <!--                @expired="expiredMethod"-->
-              <!--              />-->
+              <vue-recaptcha
+                :key="trigger"
+                size="large"
+                :sitekey="key"
+                @verify="verifyMethod"
+                @expired="expiredMethod"
+              />
             </div>
             <div class="flex-y-center justify-end col-span-2 md:col-span-1">
               <BaseButton
                 class="w-full !text-sm md:w-[270px] !font-bold !leading-none !py-3 !px-6 !text-white hover:!text-black"
                 variant="orange"
                 :text="'Send'"
+                :disabled="!captchaToken"
                 @click="sendMail"
               />
             </div>

@@ -10,9 +10,28 @@
         @click="$router.push('/auction')"
       />
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      <CommonCardAuction v-for="i in 3" :key="i" />
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <CommonCardAuction
+        v-for="(item, index) in auction"
+        :key="index"
+        :data="item"
+      />
     </div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const auction = ref<any>([])
+
+function getCategory() {
+  useApi()
+    .$get('auction/list')
+    .then((res) => {
+      auction.value = res
+    })
+    .catch((err) => {
+      return new Error(err)
+    })
+}
+
+getCategory()
+</script>

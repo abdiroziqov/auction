@@ -5,11 +5,15 @@
       <ClientOnly>
         <Swiper class="!w-full" v-bind="settings">
           <SwiperSlide
-            v-for="(item, index) in [...category, ...category]"
+            v-for="(item, index) in category"
             :key="index"
             class="!w-[196px]"
           >
-            <CommonCardCategory :title="item?.title" :to="item?.to" />
+            <CommonCardCategory
+              :title="item?.name"
+              :to="item?.to"
+              :image="item?.image"
+            />
           </SwiperSlide>
         </Swiper>
       </ClientOnly>
@@ -34,30 +38,18 @@ const settings = computed(() => ({
   modules,
 }))
 
-const category = [
-  {
-    title: 'Water Paint',
-    to: '/category/1',
-  },
-  {
-    title: 'Fine Art',
-    to: '/category/2',
-  },
-  {
-    title: 'Best Arts',
-    to: '/category/3',
-  },
-  {
-    title: 'Natural sense',
-    to: '/category/3',
-  },
-  {
-    title: 'Visual Arts',
-    to: '/category/3',
-  },
-  {
-    title: 'Philosophy',
-    to: '/category/3',
-  },
-]
+const category = ref<any>([])
+
+function getCategory() {
+  useApi()
+    .$get('auction/category')
+    .then((res) => {
+      category.value = res
+    })
+    .catch((err) => {
+      return new Error(err)
+    })
+}
+
+getCategory()
 </script>

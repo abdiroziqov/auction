@@ -8,16 +8,16 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Aristo',
+      title: 'Fotheby Auction',
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/bidgen-logo.svg' }],
       meta: [
         {
           name: 'og:site_name',
-          content: 'Aristo',
+          content: 'Fotheby Auction',
         },
         {
           name: 'keywords',
-          content: 'Aristo',
+          content: 'Fotheby Auction',
         },
       ],
     },

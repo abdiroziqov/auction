@@ -31,8 +31,8 @@
       </div>
     </div>
     <AuctionSingleBidNow :auction="data" />
-
     <div
+      v-if="data?.bid_history.length"
       class="mt-6 shadow-[5px_7px_35px_0px_rgba(113,113,113,0.1)] rounded p-4"
     >
       <h3

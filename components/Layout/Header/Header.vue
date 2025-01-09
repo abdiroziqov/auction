@@ -30,11 +30,14 @@
           </ul>
         </div>
         <div>
-          <FormInputSearch
-            v-model="search"
-            placeholder="Search your items"
-            class="!bg-transparent w-full !border !border-orange !text-white text-orange"
-          />
+          <div class="flex items-center gap-3">
+            <FormInputSearch
+              v-model="search"
+              placeholder="Search your items"
+              class="!bg-transparent w-full !border !border-orange !text-orange placeholder-orange"
+            />
+            <i class="icon-user1 text-xl" />
+          </div>
         </div>
       </div>
     </div>

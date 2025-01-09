@@ -71,7 +71,6 @@ const formattedLabels: Record<string, string> = {
   artist_bio: 'Artist Bio',
 }
 
-// Format the additional details into label-value pairs for rendering
 const formattedDetails = computed(() =>
   props.data.additional_details.flatMap((detail) =>
     Object.entries(detail).map(([key, value]) => ({

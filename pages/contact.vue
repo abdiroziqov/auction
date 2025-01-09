@@ -68,6 +68,7 @@
                 variant="orange"
                 :text="'Send'"
                 :disabled="!captchaToken"
+                :loading="buttonLoading"
                 @click="sendMail"
               />
             </div>
@@ -93,24 +94,16 @@ const menu = computed(() => {
     },
   ]
 })
-// const useContact = useContactStore()
-// const contactInfoData = computed(() => useContact.contacts)
-// const loading = computed(() => useContact.loading)
-
-// useContact.fetchContacts()
-const { showToast } = useCustomToast()
 const buttonLoading = ref(false)
 const form = useForm(
   {
     name: '',
-    number: '',
     email: '',
     message: '',
   },
   {
     email: { required, email },
     name: { required },
-    number: { required },
     message: { required },
   },
 )
@@ -118,41 +111,28 @@ const form = useForm(
 const sendMail = () => {
   form.$v.value.$touch()
   if (!form.$v.value.$invalid) {
+    buttonLoading.value = true
     try {
       useApi()
-        .$post('send_request', {
-          params: {
-            model: 'contact.us',
-          },
+        .$post('auction/contact', {
           body: {
-            fields: ['name', 'phone', 'description', 'email'],
-            values: {
-              name: form.values.name,
-              phone: form.values.number,
-              description: form.values.message,
-              email: form.values.email,
-            },
-          },
-          headers: {
-            'Content-Type': 'application/json',
+            name: form.values.name,
+            message: form.values.message,
+            email: form.values.email,
           },
         })
         .then(() => {
-          showToast('successfully_send', 'success')
           form.$v.value.$reset()
           form.values.name = ''
-          form.values.number = ''
           form.values.message = ''
           form.values.email = ''
           trigger.value = true
         })
     } catch (e) {
-      showToast('email_error', 'error')
+      console.log(e)
     } finally {
       buttonLoading.value = false
     }
-  } else {
-    return showToast('form_empty', 'error')
   }
 }
 

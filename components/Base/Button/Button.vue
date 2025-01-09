@@ -5,7 +5,7 @@
       sizes[size],
       {
         '!cursor-progress': loading || loadingMore,
-        'disabled:!bg-gray-100 disabled:!text-black': !loading && !loadingMore,
+        'disabled:!bg-[#f3f4f6] disabled:!text-black': !loading && !loadingMore,
       },
       hoverClasses,
     ]"
@@ -98,7 +98,6 @@ const variants: Record<TButtonVariants, string> = {
     'text-lg text-[#17161a] bg-orange border-2 border-orange hover:bg-transparent hover:text-orange',
   border:
     'border-2 border-orange text-orange hover:text-[#17161a] hover:bg-orange',
-  disabled: 'text-white bg-gray-100',
   grayBorder:
     'border border-gray-100 text-gray-100 font-extrabold text-lg hover:text-white hover:bg-gray-100 rounded-sm',
 }

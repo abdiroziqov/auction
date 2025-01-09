@@ -3,10 +3,10 @@
     <div
       class="bg-[#fafafa] p-4 text-gray-100 text-center group-hover:bg-gray-100 group-hover:text-white duration-300"
     >
-      <p class="font-bold text-lg mb-2">{{ data?.name }}</p>
+      <p class="font-bold text-lg mb-2 h-max">{{ data?.name }}</p>
       <p class="font-extrabold text-2xl">$ {{ data?.price }}</p>
     </div>
-    <div class="w-[416px] h-[258px] relative">
+    <div class="w-full sm:w-[416px] h-[258px] relative">
       <img
         class="w-full h-full duration-300 group-hover:scale-[1.02]"
         :src="data?.image1"

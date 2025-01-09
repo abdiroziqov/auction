@@ -21,10 +21,10 @@
               :key="'quick-' + index"
               class="mb-2"
             >
-              <a
-                :href="link?.links"
+              <NuxtLink
+                :to="link?.links"
                 class="hover:text-orange text-[#efefef] duration-300"
-                >{{ link?.name }}</a
+                >{{ link?.name }}</NuxtLink
               >
             </li>
           </ul>

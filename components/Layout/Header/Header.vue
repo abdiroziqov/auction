@@ -12,7 +12,7 @@
       <div class="flex justify-between items-center py-4">
         <NuxtLink class="flex items-center gap-3" to="/">
           <img src="/bidgen-logo.svg" alt="logo" />
-          <h1 class="text-3xl font-bold text-white">Fotheby’s Auction</h1>
+          <h1 class="text-3xl font-bold text-white">Fotheby Auction</h1>
         </NuxtLink>
         <div>
           <ul class="flex gap-4 text-white">

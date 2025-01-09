@@ -5,7 +5,9 @@
         <img class="!h-[135px] w-full" :src="data?.image1" alt="image" />
       </div>
       <div class="px-5 pb-5">
-        <div class="absolute w-20 h-20 top-[32%] left-[35%]">
+        <div
+          class="absolute w-20 h-20 top-[32%] left-1/2 transform -translate-x-1/2"
+        >
           <img
             class="rounded-[50%] w-full h-full"
             :src="data?.image2"

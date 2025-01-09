@@ -84,7 +84,7 @@ const formattedLabels: Record<string, string> = {
 }
 
 const formattedDetails = computed(() =>
-  props.data.additional_details.flatMap((detail) =>
+  props?.data?.additional_details?.flatMap((detail) =>
     Object.entries(detail).map(([key, value]) => ({
       label: formattedLabels[key] || key,
       value,

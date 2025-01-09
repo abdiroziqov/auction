@@ -19,7 +19,7 @@
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8"
         >
           <CommonCardAuctionPageC
-            v-for="(item, index) in data.best_related_auctions"
+            v-for="(item, index) in data?.best_related_auctions"
             :key="index"
             :data="item"
           />

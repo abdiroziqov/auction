@@ -36,7 +36,7 @@
               placeholder="Search your items"
               class="!bg-transparent w-full !border !border-orange !text-orange placeholder-orange"
             />
-            <i class="icon-user1 text-xl" />
+            <i class="icon-user1 text-xl" @click="login" />
           </div>
         </div>
       </div>
@@ -45,6 +45,8 @@
 </template>
 
 <script setup lang="ts">
+import { useNuxtApp, useRoute } from '#app'
+
 const route = useRoute()
 const isScrolled = ref(false)
 const search = ref('')
@@ -58,7 +60,6 @@ const handleScroll = () => {
 const onSearchFn = (value: string) => {
   console.log(value)
 }
-
 const onSearch = debounce(onSearchFn, 500)
 
 watch(search, (value) => {
@@ -91,6 +92,12 @@ const quickLinks = [
     links: '/contact',
   },
 ]
+
+const nuxtApp = useNuxtApp()
+
+const login = () => {
+  nuxtApp.vueApp.config.globalProperties.$emitter.emit('open-auth', 'login')
+}
 </script>
 
 <style scoped>

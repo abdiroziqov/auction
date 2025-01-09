@@ -15,7 +15,7 @@
     />
 
     <p
-      class="pt-[20px] font-semibold text-[20px] leading-[30px] capitalize text-white"
+      class="pt-[20px] font-semibold text-[20px] leading-[30px] capitalize text-white line-clamp-1"
     >
       {{ data?.name }}
     </p>
@@ -38,6 +38,8 @@
           >Bid Now</BaseButton
         >
       </NuxtLink>
+
+      <pre>{{ trigger }}</pre>
       <BaseButtonLike :model-value="trigger" />
     </div>
   </div>
@@ -55,4 +57,6 @@ interface Props {
   }
 }
 defineProps<Props>()
+
+const trigger = ref(false)
 </script>

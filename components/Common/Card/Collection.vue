@@ -20,8 +20,8 @@
           {{ data?.name }}
         </p>
         <div class="mt-5 flex items-center justify-between">
-          <p class="font-medium text-xs">Status: {{ data?.status }}</p>
-          <p class="font-medium text-xs">View: {{ data?.view }}</p>
+          <p class="font-medium text-xs uppercase">{{ data?.status }}</p>
+          <p class="font-medium text-xs">{{ data?.view }}</p>
         </div>
       </div>
     </div>

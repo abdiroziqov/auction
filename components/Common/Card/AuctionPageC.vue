@@ -3,7 +3,7 @@
     <div
       class="bg-[#fafafa] p-4 text-gray-100 text-center group-hover:bg-gray-100 group-hover:text-white duration-300"
     >
-      <p class="font-bold text-lg mb-2 h-max">{{ data?.name }}</p>
+      <p class="font-bold text-lg mb-2 h-max line-clamp-1">{{ data?.name }}</p>
       <p class="font-extrabold text-2xl">$ {{ data?.price }}</p>
     </div>
     <div class="w-full sm:w-[416px] h-[258px] relative">
@@ -14,7 +14,7 @@
       />
     </div>
     <div
-      class="font-extrabold text-xs text-gray-100 bg-white absolute top-[25%] left-[-14px] px-4 py-1.5 rounded-tr-[28px] rotate-90"
+      class="font-extrabold text-xs text-gray-100 bg-white absolute top-[21%] left-[-14px] px-4 py-1.5 rounded-tr-[28px] rotate-90"
     >
       ID {{ data?.id }}
     </div>

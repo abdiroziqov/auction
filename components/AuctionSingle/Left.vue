@@ -1,7 +1,7 @@
 <template>
   <div>
     <AuctionSingleTime :data="data" class="mb-6" />
-    <CommonProductsSingleSwiper :images="data.images" />
+    <CommonProductsSingleSwiper :images="data?.images" />
     <CommonCTab
       class="mt-7"
       v-model="activeTab"

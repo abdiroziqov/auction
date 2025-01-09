@@ -34,7 +34,7 @@
       :text="'Login'"
       variant="orange"
       :disabled="isDisabled"
-      :loading="loading"
+      :loading="isLoading"
       @click="submit"
     />
     <div class="flex-center gap-2 mt-3">
@@ -48,44 +48,78 @@
         Registration
       </button>
     </div>
+    <p v-if="errorMessage" class="mt-4 text-red-500 text-sm">
+      {{ errorMessage }}
+    </p>
   </div>
 </template>
 
 <script setup lang="ts">
+import axios from 'axios'
+
 import type { TForm } from '~/composables/useForm'
 
+// Props and emits
 interface Props {
   form: TForm<any>
-  loading: boolean
 }
-
 const props = defineProps<Props>()
 const emit = defineEmits(['on-submit', 'password', 'register'])
 
+// Destructure form values and validation
 const { form } = unref(props)
 const { values, $v } = form
 
+// State
 const isDisabled = ref(true)
+const isLoading = ref(false)
+const errorMessage = ref('')
 
-function submit() {
+// Submit the login form
+async function submit() {
   $v.value.$touch()
   if (!$v.value.$invalid) {
-    emit('on-submit')
+    isLoading.value = true
+    errorMessage.value = '' // Reset error message
+    try {
+      const response = await axios.post(
+        'https://aristoback.ikramovna.me/api/v1/users/login',
+        {
+          username: values.username,
+          password: values.password,
+        },
+      )
+
+      // Save tokens in localStorage
+      const { access, refresh } = response.data
+      localStorage.setItem('access_token', access)
+      localStorage.setItem('refresh_token', refresh)
+
+      // Emit success event
+      emit('on-submit')
+    } catch (err) {
+      // Handle error response
+      errorMessage.value =
+        err.response?.data?.error ||
+        'Login failed. Please check your credentials.'
+    } finally {
+      isLoading.value = false
+    }
+  } else {
+    errorMessage.value = 'Please fill in all required fields.'
   }
 }
 
+// Watch for form changes to enable/disable button
 watch(
   () => values,
   () => {
-    if (values?.email?.length && values?.password?.length) {
-      isDisabled.value = false
-    } else {
-      isDisabled.value = false
-    }
+    isDisabled.value = !(values?.username?.length && values?.password?.length)
   },
-  {
-    deep: true,
-    immediate: true,
-  },
+  { deep: true, immediate: true },
 )
 </script>
+
+<style scoped>
+/* Add custom styles if needed */
+</style>

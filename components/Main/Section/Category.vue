@@ -11,7 +11,7 @@
           >
             <CommonCardCategory
               :title="item?.name"
-              :to="item?.to"
+              :to="item?.id"
               :image="item?.image"
             />
           </SwiperSlide>

@@ -10,7 +10,7 @@
           :error="form.$v.value.full_name.$error"
         />
       </FormGroup>
-      <FormGroup label="Name" for-id="user_name">
+      <FormGroup label="User name" for-id="user_name">
         <FormInput
           v-model="values.username"
           input-id="username"

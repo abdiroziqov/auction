@@ -31,7 +31,6 @@
         :class="{ 'opacity-100': !isActive(index) }"
       >
         <img :src="item" alt="image" class="block w-full h-full object-cover" />
-        <pre>{{ item }}</pre>
       </swiper-slide>
     </swiper>
   </div>

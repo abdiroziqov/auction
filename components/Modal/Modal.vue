@@ -29,7 +29,7 @@
                 @click="$emit('close')"
               >
                 <span
-                  class="icon-close text-sm text-gray-100 group-hover:text-red transition-300"
+                  class="icon-close text-sm text-orange group-hover:text-red transition-300"
                 />
               </button>
             </slot>

@@ -39,8 +39,7 @@
         >
       </NuxtLink>
 
-      <pre>{{ trigger }}</pre>
-      <BaseButtonLike :model-value="trigger" />
+      <BaseButtonLike :auction-id="data?.id" :model-value="trigger" />
     </div>
   </div>
 </template>

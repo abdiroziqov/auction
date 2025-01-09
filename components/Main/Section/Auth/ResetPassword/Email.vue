@@ -20,7 +20,6 @@
 </template>
 
 <script setup lang="ts">
-import { useCustomToast } from '~/composables/useCustomToast'
 import type { TForm } from '~/composables/useForm'
 // import { useAuthStore } from '~/store/auth'
 // import type { TCheckEmailData, TRequestOtpData } from '~/types/auth'

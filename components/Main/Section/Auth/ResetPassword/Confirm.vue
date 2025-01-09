@@ -42,7 +42,7 @@ const { form } = unref(props)
 const { values, $v } = form
 
 const emit = defineEmits(['next', 'back'])
-const { showToast } = useCustomToast()
+// const { showToast } = useCustomToast()
 
 const buttonLoading = ref(false)
 
@@ -51,14 +51,12 @@ async function submit() {
   if (!$v.value.$invalid) {
     try {
       buttonLoading.value = true
-      const data = await store.submitOtp(values.code)
+      // const data = await store.submitOtp(values.code)
       buttonLoading.value = false
       emit('next')
     } catch (e) {
       buttonLoading.value = false
     }
-  } else {
-    showToast('error_code', 'error')
   }
 }
 </script>

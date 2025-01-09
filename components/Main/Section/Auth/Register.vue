@@ -96,7 +96,7 @@ const props = defineProps<Props>()
 const emit = defineEmits(['on-register', 'load-more', 'login'])
 const { form } = unref(props)
 const { values, $v } = form
-const { showToast } = useCustomToast()
+// const { showToast } = useCustomToast()
 
 const type = ref('password')
 const showActivation = ref(false)

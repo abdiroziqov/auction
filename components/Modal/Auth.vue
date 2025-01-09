@@ -39,9 +39,6 @@
 <script setup lang="ts">
 import { email, minLength, required } from '@vuelidate/validators'
 
-import { useAuthStore } from '~/store/auth'
-
-const { showToast } = useCustomToast()
 interface Props {
   show?: boolean
   state?: 'login' | 'register' | 'password'
@@ -124,7 +121,7 @@ async function onLogin() {
       console.log(res, 'Login successful')
       emit('close')
       clearLogin()
-      showToast('success', 'Login successful')
+      // showToast('success', 'Login successful')
     })
     .catch((err) => {
       console.log(err)
@@ -146,7 +143,7 @@ function onRegister() {
     .then((res) => {
       console.log(res, 'Registration successful')
       clearRegister()
-      showToast('registration_success', 'Registration successful')
+      // showToast('registration_success', 'Registration successful')
       loginForm.values.email = obj.email
       loginForm.values.password = obj.password
       innerState.value = ESTATE.login
@@ -161,7 +158,6 @@ function onRegister() {
 
 function onActivationSuccess(accessToken: string) {
   localStorage.setItem('access_token', accessToken)
-  showToast('success', 'Activation successful. Logging you in...')
   emit('close')
 }
 

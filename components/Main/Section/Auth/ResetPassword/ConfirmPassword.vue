@@ -1,72 +1,76 @@
 <template>
-  <div>
-    <div class="flex flex-col gap-4">
-      <FormGroup label="New password" for-id="new-password">
-        <FormInputPassword
-          v-model="values.new_password"
-          input-id="new-password"
-          placeholder="Enter new password')"
-          v-bind="{ type }"
-          :error="form.$v.value.new_password.$error"
-          @change="type = $event"
-        />
-      </FormGroup>
-      <FormGroup label="Confirm password" for-id="confirm">
-        <FormInputPassword
-          v-model="values.confirm_password"
-          input-id="confirm"
-          placeholder="Enter confirm password"
-          v-bind="{ type }"
-          :error="form.$v.value.confirm_password.$error"
-          @change="type = $event"
-        />
-      </FormGroup>
-    </div>
-
-    <BaseButton
-      class="w-full mt-5"
-      text="Reset"
-      :disabled="
-        !values.new_password?.length || !values.confirm_password?.length
-      "
-      v-bind="{ loading }"
-      @click="submit"
-    />
-  </div>
+  <div>dawd</div>
 </template>
 
-<script setup lang="ts">
-import type { TForm } from '~/composables/useForm'
-import { useAuthStore } from '~/store/auth'
+<!--<template>-->
+<!--  <div>-->
+<!--    <div class="flex flex-col gap-4">-->
+<!--      <FormGroup label="New password" for-id="new-password">-->
+<!--        <FormInputPassword-->
+<!--          v-model="values.new_password"-->
+<!--          input-id="new-password"-->
+<!--          placeholder="Enter new password')"-->
+<!--          v-bind="{ type }"-->
+<!--          :error="form.$v.value.new_password.$error"-->
+<!--          @change="type = $event"-->
+<!--        />-->
+<!--      </FormGroup>-->
+<!--      <FormGroup label="Confirm password" for-id="confirm">-->
+<!--        <FormInputPassword-->
+<!--          v-model="values.confirm_password"-->
+<!--          input-id="confirm"-->
+<!--          placeholder="Enter confirm password"-->
+<!--          v-bind="{ type }"-->
+<!--          :error="form.$v.value.confirm_password.$error"-->
+<!--          @change="type = $event"-->
+<!--        />-->
+<!--      </FormGroup>-->
+<!--    </div>-->
 
-interface Props {
-  form: TForm<any>
-}
+<!--    <BaseButton-->
+<!--      class="w-full mt-5"-->
+<!--      text="Reset"-->
+<!--      :disabled="-->
+<!--        !values.new_password?.length || !values.confirm_password?.length-->
+<!--      "-->
+<!--      v-bind="{ loading }"-->
+<!--      @click="submit"-->
+<!--    />-->
+<!--  </div>-->
+<!--</template>-->
 
-const props = defineProps<Props>()
-// const store = useAuthStore()
-const { form } = unref(props)
-const { values, $v } = form
+<!--<script setup lang="ts">-->
+<!--import type { TForm } from '~/composables/useForm'-->
+<!--import { useAuthStore } from '~/store/auth'-->
 
-const emit = defineEmits(['next'])
-const { showToast } = useCustomToast()
+<!--interface Props {-->
+<!--  form: TForm<any>-->
+<!--}-->
 
-const type = ref('password')
-const loading = ref(false)
+<!--const props = defineProps<Props>()-->
+<!--// const store = useAuthStore()-->
+<!--const { form } = unref(props)-->
+<!--const { values, $v } = form-->
 
-async function submit() {
-  $v.value.$touch()
-  if (!$v.value.$invalid) {
-    try {
-      loading.value = true
-      const data = await store.resetPassword(values.new_password)
-      showToast('successfully_changed_password', 'success')
-      emit('next')
-      loading.value = false
-    } catch (e) {
-      loading.value = false
-      console.log(e)
-    }
-  }
-}
-</script>
+<!--const emit = defineEmits(['next'])-->
+<!--// const { showToast } = useCustomToast()-->
+
+<!--const type = ref('password')-->
+<!--const loading = ref(false)-->
+
+<!--async function submit() {-->
+<!--  $v.value.$touch()-->
+<!--  if (!$v.value.$invalid) {-->
+<!--    try {-->
+<!--      loading.value = true-->
+<!--      const data = await store.resetPassword(values.new_password)-->
+<!--      // showToast('successfully_changed_password', 'success')-->
+<!--      emit('next')-->
+<!--      loading.value = false-->
+<!--    } catch (e) {-->
+<!--      loading.value = false-->
+<!--      console.log(e)-->
+<!--    }-->
+<!--  }-->
+<!--}-->
+<!--</script>-->

@@ -30,19 +30,31 @@
         </div>
       </div>
     </div>
+    <AuctionSingleBidNow :auction="data" />
+
+    <div
+      class="mt-6 shadow-[5px_7px_35px_0px_rgba(113,113,113,0.1)] rounded p-4"
+    >
+      <h3
+        class="text-[20px] font-extrabold text-gray-100 inline-block uppercase mb-2.5"
+      >
+        Bidding History
+      </h3>
+      <AuctionSingleBidHistory
+        v-for="(item, idx) in data?.bid_history"
+        :key="idx"
+        :data="item"
+      />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Detail {
-  label: string
-  value: string | number
-}
-
 interface Props {
   data: {
     name: string
     description: string
+    bid_history: string[]
     additional_details: Record<string, string | number>[]
   }
 }

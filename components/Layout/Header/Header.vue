@@ -98,7 +98,8 @@ const isHomeRoute = computed(() => route.path === '/')
 
 const isAuthenticated = computed(() => {
   return (
-    !!localStorage.getItem('access_token') && !!localStorage.getItem('refresh')
+    !!localStorage.getItem('access_token') &&
+    !!localStorage.getItem('refresh_token' || 'refresh')
   )
 })
 

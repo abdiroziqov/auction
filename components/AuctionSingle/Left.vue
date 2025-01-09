@@ -1,7 +1,7 @@
 <template>
   <div>
-    <AuctionSingleTime class="mb-6" />
-    <CommonProductsSingleSwiper />
+    <AuctionSingleTime :data="data" class="mb-6" />
+    <CommonProductsSingleSwiper :images="data.images" />
     <CommonCTab
       class="mt-7"
       v-model="activeTab"
@@ -16,22 +16,31 @@
         v-if="activeTab === '0'"
         class="font-medium leading-7 text-[#5C5C5C]"
       >
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis molestiae
-        dolore, quaerat illo adipisci fugiat voluptatibus eligendi provident
-        animi qui totam commodi a dolor saepe labore tempore. Consequuntur
-        doloremque accusantium aspernatur illo labore quisquam consectetur
-        tenetur temporibus, eos ad, fuga cumque suscipit quasi iure veniam,
-        omnis in iste ipsa optio. Sint voluptates sed inventore saepe, obcaecati
-        dolores rerum aliquid eaque.
+        {{ data?.description }}
       </div>
       <div v-else-if="activeTab === '1'">
-        <CommonPlayer video-src="https://www.w3schools.com/html/mov_bbb.mp4" />
+        <CommonPlayer :video="data?.video" />
       </div>
     </div>
     <CommonCardShareNow />
   </div>
 </template>
 <script setup lang="ts">
+interface Props {
+  data: {
+    images: string
+    id: number
+    name: string
+    bid?: number
+    price: number
+    remaining_time: string
+    owner_full_name: string
+    owner_image: string
+    video: string
+    description: string
+  }
+}
+defineProps<Props>()
 const activeTab = ref('0')
 
 const tabs = ref([

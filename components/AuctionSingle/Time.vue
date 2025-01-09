@@ -4,9 +4,9 @@
   >
     <div>
       <p class="font-semibold mb-1">Current Bid</p>
-      <p class="font-extrabold text-2xl">$ {{ data?.bid ?? 209000 }}</p>
+      <p class="font-extrabold text-2xl">$ {{ data?.current_bid ?? 209000 }}</p>
     </div>
-    <CommonCountdown target-date="2025-10-27T08:00:00" :hide-days="false" />
+    <CommonCountdown :target-date="data?.time_remaining" :hide-days="false" />
   </div>
 </template>
 

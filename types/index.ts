@@ -11,6 +11,8 @@ export interface IProduct {
   bid: number | string
   image: string
   time: string
+  time_remaining: string
+  current_bid: number | string
 }
 
 export interface IFaq {

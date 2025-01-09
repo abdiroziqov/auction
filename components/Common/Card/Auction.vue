@@ -9,7 +9,7 @@
       main-class="bg-orange w-max px-4 py-2 rounded-[35px] font-bold text-[15px]"
     />
     <img
-      class="max-w-[376px] w-full rounded-10 h-full max-h-[248px]"
+      class="w-full rounded-10 h-full max-h-[248px]"
       :src="data?.image1"
       alt="image"
     />
@@ -17,7 +17,7 @@
     <p
       class="pt-[20px] font-semibold text-[20px] leading-[30px] capitalize text-white"
     >
-      Profile portrait of a beautiful girl a alien ultraviolet body.
+      {{ data?.name }}
     </p>
     <div class="flex mt-5 items-center justify-between">
       <AuctionSingleUser

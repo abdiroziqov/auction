@@ -5,17 +5,9 @@
       <h3 class="section-title !text-black mb-6">Auction</h3>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
         <CommonCardAuctionPageC
-          v-for="item in 5"
-          :key="item"
-          :data="{
-            link: 'auction/1',
-            title: 'Masrati Mustang GT Premium',
-            price: '2,56',
-            bid: '2,56',
-            id: 3123123,
-            label: 'ID',
-            time: '2023-10-27T08:00:00',
-          }"
+          v-for="(item, index) in auction"
+          :key="index"
+          :data="item"
         />
       </div>
     </div>
@@ -23,6 +15,20 @@
 </template>
 
 <script setup lang="ts">
+const auction = ref<any>([])
+
+function getCategory() {
+  useApi()
+    .$get('auction/list')
+    .then((res) => {
+      auction.value = res
+    })
+    .catch((err) => {
+      return new Error(err)
+    })
+}
+
+getCategory()
 const menu = computed(() => {
   return [
     {

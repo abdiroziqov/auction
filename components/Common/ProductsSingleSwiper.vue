@@ -10,12 +10,8 @@
       :space-between="10"
       :thumbs="{ swiper: thumbsSwiper }"
     >
-      <swiper-slide v-for="index in 8" :key="index" class="slide">
-        <img
-          src="/images/car.png"
-          class="block w-full h-full object-cover"
-          alt="image"
-        />
+      <swiper-slide v-for="(item, index) in images" :key="index" class="slide">
+        <img :src="item" class="block w-full h-full object-cover" alt="image" />
       </swiper-slide>
     </swiper>
     <swiper
@@ -29,16 +25,13 @@
       @swiper="setThumbsSwiper"
     >
       <swiper-slide
-        v-for="index in 8"
+        v-for="(item, index) in images"
         :key="index"
         class="slide w-[25%] h-full opacity-100 transition-opacity duration-300 py-5 cursor-pointer"
         :class="{ 'opacity-100': !isActive(index) }"
       >
-        <img
-          src="/images/car.png"
-          alt="image"
-          class="block w-full h-full object-cover"
-        />
+        <img :src="item" alt="image" class="block w-full h-full object-cover" />
+        <pre>{{ item }}</pre>
       </swiper-slide>
     </swiper>
   </div>
@@ -53,6 +46,11 @@ import { Thumbs } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 
 const thumbsSwiper = ref<SwiperClass>()
+
+interface Props {
+  images: string
+}
+defineProps<Props>()
 
 const setThumbsSwiper = (swiper: SwiperClass) => {
   thumbsSwiper.value = swiper

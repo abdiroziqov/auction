@@ -82,6 +82,13 @@
           >
             Edit Profile
           </button>
+          <!-- Logout Button -->
+          <button
+            class="mt-6 w-max bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 ml-5"
+            @click="logout"
+          >
+            Log Out
+          </button>
         </div>
         <!-- Edit Profile Form -->
         <form v-else class="space-y-4" @submit.prevent="updateProfile">
@@ -150,7 +157,6 @@
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import axios from 'axios'
 import { onMounted, reactive, ref } from 'vue'
@@ -182,18 +188,19 @@ const loading = ref(false)
 const error = ref('')
 const defaultImage = '/images/default-image.webp'
 const previewImage = ref('')
-const accessToken = useCookie('access_token').value
+const accessToken = useCookie('access_token')
+const refreshToken = useCookie('refresh_token')
 
 const fetchUserProfile = async () => {
   loading.value = true
   error.value = ''
   try {
-    if (!accessToken) throw new Error('User not authenticated.')
+    if (!accessToken.value) throw new Error('User not authenticated.')
 
     const response = await axios.get(
       'https://aristoback.ikramovna.me/api/v1/users/profile',
       {
-        headers: { Authorization: `Bearer ${accessToken}` },
+        headers: { Authorization: `Bearer ${accessToken.value}` },
       },
     )
     profileData.value = response.data
@@ -211,7 +218,7 @@ const updateProfile = async () => {
   loading.value = true
   error.value = ''
   try {
-    if (!accessToken) throw new Error('User not authenticated.')
+    if (!accessToken.value) throw new Error('User not authenticated.')
 
     const formData = new FormData()
     formData.append('full_name', editData.full_name)
@@ -228,7 +235,7 @@ const updateProfile = async () => {
       formData,
       {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${accessToken.value}`,
           'Content-Type': 'multipart/form-data',
         },
       },
@@ -269,8 +276,15 @@ const validateForm = () => {
   return true
 }
 
+const logout = () => {
+  accessToken.value = null
+  refreshToken.value = null
+  window.location.href = '/' // Example redirect to login page
+}
+
 onMounted(fetchUserProfile)
 </script>
+
 <style scoped>
 /* Custom styles for profile image and spacing */
 </style>

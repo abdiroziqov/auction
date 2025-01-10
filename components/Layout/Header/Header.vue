@@ -102,7 +102,7 @@ const isHomeRoute = computed(() => route.path === '/')
 const isAuthenticated = computed(() => {
   const accessToken = useCookie('access_token')
   const refreshToken = useCookie('refresh_token')
-  return !!accessToken.value && !!refreshToken.value
+  return !!accessToken.value || !!refreshToken.value
 })
 
 const handleScroll = () => {

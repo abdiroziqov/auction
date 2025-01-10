@@ -14,9 +14,7 @@
             alt="image"
           />
         </div>
-        <p
-          class="font-bold text-xl text-center tracking-[0.2em] mt-[50px] line-clamp-1"
-        >
+        <p class="font-bold tracking-[0.2em] mt-[50px] line-clamp-1">
           {{ data?.name }}
         </p>
         <div class="mt-5 flex items-center justify-between">

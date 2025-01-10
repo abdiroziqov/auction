@@ -96,7 +96,6 @@ const props = defineProps<Props>()
 const emit = defineEmits(['on-register', 'load-more', 'login'])
 const { form } = unref(props)
 const { values, $v } = form
-// const { showToast } = useCustomToast()
 
 const type = ref('password')
 const showActivation = ref(false)
@@ -110,16 +109,11 @@ async function submitRegistration() {
         'https://aristoback.ikramovna.me/api/v1/users/register',
         values,
       )
-      // showToast(
-      // 'success',
-      // 'Registration successful. Please enter your activation code.',
-      // )
+
       showActivation.value = true
     } catch (error) {
       // showToast('error', 'Registration failed. Please try again.')
     }
-  } else {
-    // showToast('error', 'Please fill all required fields correctly.')
   }
 }
 
@@ -134,29 +128,10 @@ async function submitActivationCode() {
     )
     const accessToken = response.data.access_token
     emit('activation-success', accessToken)
-    // showToast('success', 'Activation successful. Logging you in...')
-    // Automatically log in the user
-    // You can store the token in localStorage or Vuex as needed
     localStorage.setItem('access_token', accessToken)
     emit('on-register')
   } catch (error) {
     // showToast('error', 'Invalid activation code. Please try again.')
   }
 }
-
-// In MainSectionAuthRegister
-// function submitActivationCode() {
-//   useApi()
-//     .$post('/users/register-activate-code', {
-//       email: values.email,
-//       code: activationCode.value,
-//     })
-//     .then((response) => {
-//       const accessToken = response.data.access_token
-//       emit('activation-success', accessToken)
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//     })
-// }
 </script>

@@ -28,10 +28,6 @@
         @login="innerState = ESTATE.login"
         @activation-success="onActivationSuccess"
       />
-      <MainSectionAuthResetPassword
-        v-if="innerState === ESTATE.password"
-        @login="resetDone"
-      />
     </div>
   </Modal>
 </template>

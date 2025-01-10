@@ -57,6 +57,7 @@
 <script setup lang="ts">
 import axios from 'axios'
 
+import { useCookie } from '#imports' // Nuxt 3's composable for cookies
 import type { TForm } from '~/composables/useForm'
 
 // Props and emits
@@ -75,6 +76,13 @@ const isDisabled = ref(true)
 const isLoading = ref(false)
 const errorMessage = ref('')
 
+// Cookies for access and refresh tokens
+const accessTokenCookie = useCookie('access_token', { path: '/', secure: true })
+const refreshTokenCookie = useCookie('refresh_token', {
+  path: '/',
+  secure: true,
+})
+
 // Submit the login form
 async function submit() {
   $v.value.$touch()
@@ -90,10 +98,10 @@ async function submit() {
         },
       )
 
-      // Save tokens in localStorage
+      // Save tokens in cookies
       const { access, refresh } = response.data
-      localStorage.setItem('access_token', access)
-      localStorage.setItem('refresh_token', refresh)
+      accessTokenCookie.value = access
+      refreshTokenCookie.value = refresh
 
       // Emit success event
       emit('on-submit')

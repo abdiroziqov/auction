@@ -36,6 +36,8 @@ import { minValue, required } from '@vuelidate/validators'
 import axios from 'axios'
 import { ref } from 'vue'
 
+import { useCookie } from '#imports'
+
 // Define form and validation rules
 const form = useForm(
   {
@@ -61,12 +63,18 @@ const props = defineProps<Props>()
 const message = ref('')
 const messageClass = ref('text-green-500') // Green for success, red for error
 
-// Axios instance with Authorization header
 const apiClient = axios.create({
   baseURL: 'https://aristoback.ikramovna.me/api/v1',
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem('access_token')}`, // Include token
-  },
+})
+
+// Add a request interceptor to dynamically set the Authorization header
+apiClient.interceptors.request.use((config) => {
+  const accessTokenCookie = useCookie('access_token')
+  const token = accessTokenCookie.value || ''
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
 })
 
 // Handle sending the bid

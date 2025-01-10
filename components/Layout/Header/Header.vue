@@ -38,13 +38,17 @@
                 placeholder="Search your items"
                 class="!bg-transparent w-72 !border !border-orange !text-orange placeholder-orange px-3 py-2 rounded-lg focus:outline-none"
               />
-              <template v-if="isAuthenticated">
+
+              <template v-if="!isAuthenticated">
+                <i
+                  class="icon-user1 text-xl text-white cursor-pointer"
+                  @click="login"
+                />
+              </template>
+              <template v-else>
                 <NuxtLink to="/profile" class="text-white">
                   <i class="icon-user1 text-xl" />
                 </NuxtLink>
-              </template>
-              <template v-else>
-                <i class="icon-user1 text-xl" @click="login" />
               </template>
 
               <NuxtLink to="/like" class="text-white">
@@ -85,8 +89,6 @@
 <script setup lang="ts">
 import axios from 'axios'
 
-import { useNuxtApp, useRoute, useRouter } from '#app'
-
 const route = useRoute()
 const router = useRouter()
 const isScrolled = ref(false)
@@ -96,11 +98,11 @@ const defaultImage = '/images/default-image.webp'
 
 const isHomeRoute = computed(() => route.path === '/')
 
+// Use cookies for authentication tokens
 const isAuthenticated = computed(() => {
-  return (
-    !!localStorage.getItem('access_token') &&
-    !!localStorage.getItem('refresh_token' || 'refresh')
-  )
+  const accessToken = useCookie('access_token')
+  const refreshToken = useCookie('refresh_token')
+  return !!accessToken.value && !!refreshToken.value
 })
 
 const handleScroll = () => {
@@ -145,6 +147,7 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
+
 const quickLinks = [
   {
     name: 'Home',

@@ -93,7 +93,12 @@ interface Props {
 }
 
 const props = defineProps<Props>()
-const emit = defineEmits(['on-register', 'load-more', 'login'])
+const emit = defineEmits([
+  'on-register',
+  'load-more',
+  'login',
+  'activation-success',
+])
 const { form } = unref(props)
 const { values, $v } = form
 
@@ -126,9 +131,12 @@ async function submitActivationCode() {
         activate_code: activationCode.value,
       },
     )
-    const accessToken = response.data.access_token
-    emit('activation-success', accessToken)
-    localStorage.setItem('access_token', accessToken)
+
+    // Save token in cookie
+    const accessTokenCookie = useCookie('access_token')
+    accessTokenCookie.value = response.data.access_token
+
+    emit('activation-success', response.data.access_token)
     emit('on-register')
   } catch (error) {
     // showToast('error', 'Invalid activation code. Please try again.')

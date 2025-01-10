@@ -24,7 +24,8 @@
 
 <script setup lang="ts">
 import axios from 'axios'
-import { onMounted, ref } from 'vue'
+
+import { useCookie } from '#app'
 
 // State
 const loading = ref(true)
@@ -34,12 +35,20 @@ const likedAuctions = ref([])
 // Fetch liked auctions
 const fetchLikedAuctions = async () => {
   try {
+    const accessTokenCookie = useCookie('access_token')
+    const accessToken = accessTokenCookie.value
+
+    if (!accessToken) {
+      error.value = 'User not authenticated. Please log in.'
+      return
+    }
+
     // Fetch user's favorites
     const favoritesResponse = await axios.get(
       'https://aristoback.ikramovna.me/api/v1/auction/favorites',
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     )
@@ -57,7 +66,7 @@ const fetchLikedAuctions = async () => {
       'https://aristoback.ikramovna.me/api/v1/auction/list',
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       },
     )

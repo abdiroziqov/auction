@@ -51,11 +51,10 @@ const props = withDefaults(defineProps<Props>(), {
 const liked = ref(false)
 const likesCount = ref<number | null>(null)
 
-// Function to get authentication token
 const getAuthToken = () => {
-  return localStorage.getItem('access_token') || ''
+  const accessTokenCookie = useCookie('access_token')
+  return accessTokenCookie.value || ''
 }
-
 // Axios instance with Authorization header
 const apiClient = axios.create({
   baseURL: 'https://aristoback.ikramovna.me/api/v1',

@@ -155,6 +155,8 @@
 import axios from 'axios'
 import { onMounted, reactive, ref } from 'vue'
 
+import { useCookie } from '#app'
+
 const profileData = ref({
   id: null,
   full_name: '',
@@ -172,6 +174,7 @@ const editData = reactive({
   phone: '',
   username: '',
   bio: '',
+  image: null,
 })
 
 const isEditing = ref(false)
@@ -179,32 +182,37 @@ const loading = ref(false)
 const error = ref('')
 const defaultImage = '/images/default-image.webp'
 const previewImage = ref('')
+const accessToken = useCookie('access_token').value
 
 const fetchUserProfile = async () => {
   loading.value = true
   error.value = ''
   try {
+    if (!accessToken) throw new Error('User not authenticated.')
+
     const response = await axios.get(
       'https://aristoback.ikramovna.me/api/v1/users/profile',
       {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
-        },
+        headers: { Authorization: `Bearer ${accessToken}` },
       },
     )
     profileData.value = response.data
-    Object.assign(editData, response.data) // Initialize edit form with profile data
+    Object.assign(editData, response.data) // Sync edit form with profile data
   } catch (err) {
-    error.value = 'Failed to load profile data. Please try again later.'
+    error.value = err.response?.data?.message || 'Failed to load profile data.'
   } finally {
     loading.value = false
   }
 }
 
 const updateProfile = async () => {
+  if (!validateForm()) return
+
   loading.value = true
   error.value = ''
   try {
+    if (!accessToken) throw new Error('User not authenticated.')
+
     const formData = new FormData()
     formData.append('full_name', editData.full_name)
     formData.append('email', editData.email)
@@ -214,12 +222,13 @@ const updateProfile = async () => {
     if (editData.image) {
       formData.append('image', editData.image)
     }
+
     const response = await axios.put(
       'https://aristoback.ikramovna.me/api/v1/users/profile',
       formData,
       {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('access_token')}`,
+          Authorization: `Bearer ${accessToken}`,
           'Content-Type': 'multipart/form-data',
         },
       },
@@ -227,7 +236,7 @@ const updateProfile = async () => {
     profileData.value = response.data
     isEditing.value = false // Exit edit mode
   } catch (err) {
-    error.value = 'Failed to update profile. Please try again later.'
+    error.value = err.response?.data?.message || 'Failed to update profile.'
   } finally {
     loading.value = false
   }
@@ -243,13 +252,25 @@ const handleImageUpload = (event: Event) => {
 
 const toggleEdit = () => {
   isEditing.value = !isEditing.value
+  if (!isEditing.value) {
+    previewImage.value = '' // Reset preview image on cancel
+  }
 }
 
-onMounted(() => {
-  fetchUserProfile()
-})
-</script>
+const validateForm = () => {
+  if (!editData.full_name.trim()) {
+    error.value = 'Full Name is required.'
+    return false
+  }
+  if (!editData.email.trim()) {
+    error.value = 'Email is required.'
+    return false
+  }
+  return true
+}
 
+onMounted(fetchUserProfile)
+</script>
 <style scoped>
 /* Custom styles for profile image and spacing */
 </style>

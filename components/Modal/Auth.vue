@@ -140,7 +140,7 @@ function onRegister() {
       console.log(res, 'Registration successful')
       clearRegister()
       // showToast('registration_success', 'Registration successful')
-      loginForm.values.email = obj.email
+      // loginForm.values.email = obj.email
       loginForm.values.password = obj.password
       innerState.value = ESTATE.login
     })
@@ -153,7 +153,8 @@ function onRegister() {
 }
 
 function onActivationSuccess(accessToken: string) {
-  localStorage.setItem('access_token', accessToken)
+  const accessTokenCookie = useCookie('access_token')
+  accessTokenCookie.value = accessToken
   emit('close')
 }
 
@@ -161,7 +162,7 @@ function clearRegister() {
   for (const key in registerForm.values) {
     registerForm.values[key] = ''
   }
-  registerForm.values.checked = false
+  // registerForm.values.checked = false
   registerForm.$v.value.$reset()
 }
 
@@ -169,11 +170,5 @@ function clearLogin() {
   loginForm.values.email = ''
   loginForm.values.password = ''
   loginForm.$v.value.$reset()
-}
-
-function resetDone(e: { email: string; password: string }) {
-  loginForm.values.email = e.email
-  loginForm.values.password = e.password
-  innerState.value = ESTATE.login
 }
 </script>
